@@ -24,18 +24,18 @@ public class HtmlRead {
             );
             String line;
             while ( (line = reader.readLine()) != null ) {
-                int containsLink = 0;
-                if (line.contains("http")) {
+                    int startIndex = line.indexOf("href=");
+                    while (startIndex != -1) {
+                        int firstQuote = line.indexOf('"', startIndex);
+                        int secondQuote = line.indexOf('"', firstQuote + 1);
 
-                    int startIndex = line.indexOf("http");
-                    String newSubstring = line.substring(startIndex - 4, startIndex);
-                    String[] firstSplit = line.split(newSubstring);
-                    System.out.println(firstSplit[1]);
-                    String[] secondSplit = firstSplit[1].split("'");
-                    System.out.println(secondSplit[0]);
-
-                }
-                // System.out.println(line);
+                        if (firstQuote != -1 && secondQuote != -1) {
+                            String link = line.substring(firstQuote + 1, secondQuote);
+                            System.out.println(link);
+                        }
+                        startIndex = line.indexOf("href=", secondQuote +1);
+                        // System.out.println(line);
+                    }
 
 
 
