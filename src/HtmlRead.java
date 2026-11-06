@@ -34,7 +34,13 @@ public class HtmlRead {
                             System.out.println(link);
                         }
                         startIndex = line.indexOf("href=", secondQuote +1);
-                        // System.out.println(line);
+                       // String[] firstSplit = line.split("\"");
+                     //   int num1 = line.indexOf(firstSplit[0]);
+                       // String[] secondSplit = firstSplit[1].split("\"");
+                       // int num2 = line.indexOf(secondSplit[0]);
+                       // String fullLink = line.substring(num1, num2);
+                       // System.out.println(fullLink);
+
                     }
 
 
