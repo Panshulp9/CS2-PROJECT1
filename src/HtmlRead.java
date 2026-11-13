@@ -23,6 +23,7 @@ public class HtmlRead {
                     new InputStreamReader(urlc.getInputStream())
             );
             String line;
+            int x = 0;
             while ( (line = reader.readLine()) != null ) {
                     int startIndex = line.indexOf("href=");
                     while (startIndex != -1) {
@@ -31,26 +32,23 @@ public class HtmlRead {
 
                         if (firstQuote != -1 && secondQuote != -1) {
                             String link = line.substring(firstQuote + 1, secondQuote);
-                            System.out.println(link);
+                            URL completeURL = new URL (url, link);
+                            System.out.println(completeURL); //https://www.geeksforgeeks.org/java/url-class-java-examples/
+                            x++;
                         }
                         startIndex = line.indexOf("href=", secondQuote +1);
-                       // String[] firstSplit = line.split("\"");
-                     //   int num1 = line.indexOf(firstSplit[0]);
-                       // String[] secondSplit = firstSplit[1].split("\"");
-                       // int num2 = line.indexOf(secondSplit[0]);
-                       // String fullLink = line.substring(num1, num2);
-                       // System.out.println(fullLink);
 
                     }
 
 
 
+
             }
             reader.close();
+            System.out.println(x);
         } catch(Exception ex) {
             System.out.println(ex);
         }
-
     }
 
 }
