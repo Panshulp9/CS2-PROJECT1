@@ -14,7 +14,7 @@ public class HtmlRead {
         try {
             System.out.println();
             System.out.print("hello \n");
-            URL url = new URL("https://en.wikipedia.org/wiki/Etihad_Airways");
+            URL url = new URL("https://www.flightaware.com/live/");
 
             URLConnection urlc = url.openConnection();
 
